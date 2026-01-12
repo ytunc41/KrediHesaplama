@@ -1,0 +1,88 @@
+﻿<Window x:Class="KrediHesaplama.WpfUygulama.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:KrediHesaplama.WpfUygulama"
+        mc:Ignorable="d"
+        Title="Kredi Hesaplama" Height="450" Width="400" Icon="icon.png"
+        WindowStartupLocation="CenterScreen" ResizeMode="CanMinimize">
+    <Grid Margin="20">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/> <!-- Header -->
+            <RowDefinition Height="Auto"/> <!-- Inputs -->
+            <RowDefinition Height="Auto"/> <!-- Calculate Button -->
+            <RowDefinition Height="*"/>    <!-- Results -->
+        </Grid.RowDefinitions>
+
+        <!-- Header -->
+        <TextBlock x:Name="lblBaslik" Text="Konut Kredisi Hesaplama" FontSize="20" FontWeight="Bold" 
+                   HorizontalAlignment="Center" Margin="0,0,0,20"/>
+
+        <!-- Inputs Panel -->
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+
+            <!-- Ana Para -->
+            <TextBlock Grid.Row="0" Grid.Column="0" Text="Ana Para (TL):" VerticalAlignment="Center" Margin="0,0,10,10"/>
+            <TextBox x:Name="txtAnaPara" Grid.Row="0" Grid.Column="1" Margin="0,0,0,10" Padding="5"/>
+
+            <!-- Aylık Faiz Oranı -->
+            <TextBlock Grid.Row="1" Grid.Column="0" Text="Aylık Faiz Oranı (%):" VerticalAlignment="Center" Margin="0,0,10,10"/>
+            <TextBox x:Name="txtFaizOrani" Grid.Row="1" Grid.Column="1" Margin="0,0,0,10" Padding="5"/>
+
+            <!-- Vade -->
+            <TextBlock Grid.Row="2" Grid.Column="0" Text="Vade (Ay):" VerticalAlignment="Center" Margin="0,0,10,10"/>
+            <TextBox x:Name="txtVade" Grid.Row="2" Grid.Column="1" Margin="0,0,0,10" Padding="5"/>
+        </Grid>
+
+        <!-- Calculate Button -->
+        <Button x:Name="btnHesapla" Grid.Row="2" Content="HESAPLA" Height="40" Margin="0,10,0,20" 
+                Click="btnHesapla_Click" FontWeight="Bold" Background="#007ACC" Foreground="White" BorderThickness="0"/>
+
+        <!-- Results Panel -->
+        <Border Grid.Row="3" BorderBrush="#DDDDDD" BorderThickness="1" CornerRadius="5" Padding="10" Background="#F9F9F9">
+            <StackPanel>
+                <TextBlock Text="Hesaplama Sonuçları" FontWeight="SemiBold" Margin="0,0,0,10" TextDecorations="Underline"/>
+                
+                <Grid Margin="0,5">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="Auto"/>
+                    </Grid.ColumnDefinitions>
+                    <TextBlock Text="Aylık Taksit:"/>
+                    <TextBlock x:Name="lblAylikTaksit" Grid.Column="1" FontWeight="Bold" Text="- TL"/>
+                </Grid>
+
+                <Grid Margin="0,5">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="Auto"/>
+                    </Grid.ColumnDefinitions>
+                    <TextBlock Text="Toplam Ödeme:"/>
+                    <TextBlock x:Name="lblToplamOdeme" Grid.Column="1" FontWeight="Bold" Text="- TL"/>
+                </Grid>
+
+                <Grid Margin="0,5">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="Auto"/>
+                    </Grid.ColumnDefinitions>
+                    <TextBlock Text="Toplam Faiz:"/>
+                    <TextBlock x:Name="lblToplamFaiz" Grid.Column="1" FontWeight="Bold" Text="- TL"/>
+                </Grid>
+                
+                 <TextBlock x:Name="lblHata" Foreground="Red" TextWrapping="Wrap" Margin="0,10,0,0" Visibility="Collapsed"/>
+            </StackPanel>
+        </Border>
+    </Grid>
+</Window>
