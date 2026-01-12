@@ -34,15 +34,15 @@
 
             <!-- Ana Para -->
             <TextBlock Grid.Row="0" Grid.Column="0" Text="Ana Para (TL):" VerticalAlignment="Center" Margin="0,0,10,10"/>
-            <TextBox x:Name="txtAnaPara" Grid.Row="0" Grid.Column="1" Margin="0,0,0,10" Padding="5"/>
+            <TextBox x:Name="txtAnaPara" Grid.Row="0" Grid.Column="1" Margin="0,0,0,10" Padding="5" TextChanged="txtSadeceSayi_TextChanged"/>
 
             <!-- Aylık Faiz Oranı -->
             <TextBlock Grid.Row="1" Grid.Column="0" Text="Aylık Faiz Oranı (%):" VerticalAlignment="Center" Margin="0,0,10,10"/>
-            <TextBox x:Name="txtFaizOrani" Grid.Row="1" Grid.Column="1" Margin="0,0,0,10" Padding="5"/>
+            <TextBox x:Name="txtFaizOrani" Grid.Row="1" Grid.Column="1" Margin="0,0,0,10" Padding="5" TextChanged="txtFaizOrani_TextChanged"/>
 
             <!-- Vade -->
             <TextBlock Grid.Row="2" Grid.Column="0" Text="Vade (Ay):" VerticalAlignment="Center" Margin="0,0,10,10"/>
-            <TextBox x:Name="txtVade" Grid.Row="2" Grid.Column="1" Margin="0,0,0,10" Padding="5"/>
+            <TextBox x:Name="txtVade" Grid.Row="2" Grid.Column="1" Margin="0,0,0,10" Padding="5" TextChanged="txtSadeceSayi_TextChanged"/>
         </Grid>
 
         <!-- Calculate Button -->

@@ -53,3 +53,12 @@ dkms.conf
 
 # debug information files
 *.dwo
+
+# .NET Build Folders
+[Bb]in/
+[Oo]bj/
+
+# Visual Studio
+.vs/
+*.user
+*.suo

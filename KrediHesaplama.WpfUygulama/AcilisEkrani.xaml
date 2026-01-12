@@ -1,0 +1,31 @@
+<Window x:Class="KrediHesaplama.WpfUygulama.AcilisEkrani"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d"
+        Title="Açılış" Height="300" Width="300"
+        WindowStartupLocation="CenterScreen"
+        WindowStyle="None"
+        AllowsTransparency="True"
+        Background="Transparent">
+    
+    <Border CornerRadius="20" Background="#FFFFFFFF">
+        <Border.Effect>
+            <DropShadowEffect BlurRadius="20" ShadowDepth="0" Opacity="0.4"/>
+        </Border.Effect>
+        <Grid>
+             <!-- Logo/Icon -->
+             <Image Source="icon.png" Width="150" Height="150" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+             
+             <!-- Loading Area -->
+             <StackPanel VerticalAlignment="Bottom" Margin="20,0,20,30">
+                 <Grid Margin="0,0,0,5">
+                     <TextBlock Text="Yükleniyor..." HorizontalAlignment="Left" Foreground="#555555" FontWeight="SemiBold"/>
+                     <TextBlock x:Name="lblYuzde" Text="%0" HorizontalAlignment="Right" Foreground="#555555" FontWeight="SemiBold"/>
+                 </Grid>
+                 <ProgressBar x:Name="prgYukleniyor" Height="6" BorderThickness="0" Background="#E0E0E0" Foreground="#007ACC" Maximum="100"/>
+             </StackPanel>
+        </Grid>
+    </Border>
+</Window>
