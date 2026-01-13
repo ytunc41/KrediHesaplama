@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("KrediHesaplama.Cekirdek")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+e50dd470476c0cd23f40ee1911d3da8a66dfde29")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+5d2fdd2547ea13ed2fed2a9d69185c2167d01216")]
 [assembly: System.Reflection.AssemblyProductAttribute("KrediHesaplama.Cekirdek")]
 [assembly: System.Reflection.AssemblyTitleAttribute("KrediHesaplama.Cekirdek")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

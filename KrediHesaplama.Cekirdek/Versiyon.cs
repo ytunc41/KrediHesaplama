@@ -7,10 +7,21 @@ namespace KrediHesaplama.Cekirdek
     /// </summary>
     public static class Versiyon
     {
-        public const string GuncelVersiyon = "1.0.2";
+        public const string GuncelVersiyon = "1.0.3";
 
         public static readonly List<VersiyonKaydi> VersiyonGecmisi = new List<VersiyonKaydi>
         {
+            new VersiyonKaydi
+            {
+                VersiyonNo = "1.0.3",
+                Tarih = "13.01.2026",
+                Aciklamalar = new List<string>
+                {
+                    "Proje dökümantasyonu (README.md) baştan aşağı yenilendi",
+                    "Kullanım kılavuzu ve teknik detaylar dökümantasyona eklendi",
+                    "Arayüz rehberi ve giriş limitleri dökümante edildi"
+                }
+            },
             new VersiyonKaydi
             {
                 VersiyonNo = "1.0.2",
