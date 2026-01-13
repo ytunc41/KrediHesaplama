@@ -19,6 +19,10 @@ namespace KrediHesaplama.WpfUygulama
             txtAnaPara.Text = "500000";
             txtFaizOrani.Text = "3,19";
             txtVade.Text = "24";
+            
+            txtTahsisUcreti.Text = "2500";
+            txtEkspertizUcreti.Text = "20000";
+            txtIpotekUcreti.Text = "3600";
         }
 
         private void btnHesapla_Click(object sender, RoutedEventArgs e)
@@ -42,14 +46,33 @@ namespace KrediHesaplama.WpfUygulama
                 if (!int.TryParse(txtVade.Text, out int vade))
                     throw new ArgumentException("Lütfen geçerli bir Vade (Ay) giriniz.");
 
+                // Masrafları Al (Boşsa 0 kabul et)
+                decimal tahsisUcreti = 0;
+                string tahsisText = txtTahsisUcreti.Text.Replace(".", "");
+                if (!string.IsNullOrEmpty(tahsisText) && !decimal.TryParse(tahsisText, out tahsisUcreti))
+                     throw new ArgumentException("Geçersiz Tahsis Ücreti.");
+
+                decimal ekspertizUcreti = 0;
+                string ekspertizText = txtEkspertizUcreti.Text.Replace(".", "");
+                if (!string.IsNullOrEmpty(ekspertizText) && !decimal.TryParse(ekspertizText, out ekspertizUcreti))
+                     throw new ArgumentException("Geçersiz Ekspertiz Ücreti.");
+
+                decimal ipotekUcreti = 0;
+                string ipotekText = txtIpotekUcreti.Text.Replace(".", "");
+                if (!string.IsNullOrEmpty(ipotekText) && !decimal.TryParse(ipotekText, out ipotekUcreti))
+                     throw new ArgumentException("Geçersiz İpotek Ücreti.");
+
                 // Hesapla
                 decimal aylikTaksit = _hesaplayici.TaksitHesapla(anaPara, faizOrani, vade);
-                decimal toplamOdeme = _hesaplayici.ToplamOdemeHesapla(aylikTaksit, vade);
-                decimal toplamFaiz = _hesaplayici.ToplamFaizHesapla(toplamOdeme, anaPara);
+                decimal krediToplamOdeme = _hesaplayici.ToplamOdemeHesapla(aylikTaksit, vade);
+                decimal toplamFaiz = _hesaplayici.ToplamFaizHesapla(krediToplamOdeme, anaPara);
+                
+                // Masrafları Toplam Ödemeye Ekle
+                decimal genelToplamOdeme = krediToplamOdeme + tahsisUcreti + ekspertizUcreti + ipotekUcreti;
 
                 // Sonuçları Göster (Para birimi formatı: C2)
                 lblAylikTaksit.Text = aylikTaksit.ToString("C2", System.Globalization.CultureInfo.CreateSpecificCulture("tr-TR"));
-                lblToplamOdeme.Text = toplamOdeme.ToString("C2", System.Globalization.CultureInfo.CreateSpecificCulture("tr-TR"));
+                lblToplamOdeme.Text = genelToplamOdeme.ToString("C2", System.Globalization.CultureInfo.CreateSpecificCulture("tr-TR"));
                 lblToplamFaiz.Text = toplamFaiz.ToString("C2", System.Globalization.CultureInfo.CreateSpecificCulture("tr-TR"));
             }
             catch (Exception ex)
@@ -185,13 +208,21 @@ namespace KrediHesaplama.WpfUygulama
                  {
                      val = 100000000;
                  }
+                 else if ((textBox.Name == "txtTahsisUcreti" || 
+                           textBox.Name == "txtEkspertizUcreti" || 
+                           textBox.Name == "txtIpotekUcreti") && val > 100000)
+                 {
+                     val = 100000;
+                 }
                  numericValue = val;
             }
 
             // 3. Formatlama
-            // txtAnaPara için binlik ayracı (nokta), txtVade için düz sayı
             string resultText;
-            if (textBox.Name == "txtAnaPara")
+            if (textBox.Name == "txtAnaPara" || 
+                textBox.Name == "txtTahsisUcreti" || 
+                textBox.Name == "txtEkspertizUcreti" || 
+                textBox.Name == "txtIpotekUcreti")
             {
                  // tr-TR kültüründe binlik ayracı noktadır.
                  resultText = numericValue.ToString("#,##0", new System.Globalization.CultureInfo("tr-TR"));

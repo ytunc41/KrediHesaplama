@@ -51,3 +51,4 @@ D:\_CALISMALAR\FAIZ\KrediHesaplama\KrediHesaplama.WpfUygulama\bin\Debug\net10.0-
 D:\_CALISMALAR\FAIZ\KrediHesaplama\KrediHesaplama.WpfUygulama\obj\Debug\net10.0-windows\KrediHesaplama.WpfUygulama_Content.g.cs
 D:\_CALISMALAR\FAIZ\KrediHesaplama\KrediHesaplama.WpfUygulama\obj\Debug\net10.0-windows\AcilisEkrani.baml
 D:\_CALISMALAR\FAIZ\KrediHesaplama\KrediHesaplama.WpfUygulama\obj\Debug\net10.0-windows\AcilisEkrani.g.cs
+D:\_CALISMALAR\FAIZ\KrediHesaplama\KrediHesaplama.WpfUygulama\obj\Debug\net10.0-windows\App.baml

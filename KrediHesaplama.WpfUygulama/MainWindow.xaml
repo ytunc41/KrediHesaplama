@@ -5,8 +5,9 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:KrediHesaplama.WpfUygulama"
         mc:Ignorable="d"
-        Title="Kredi Hesaplama" Height="450" Width="400" Icon="icon.png"
-        WindowStartupLocation="CenterScreen" ResizeMode="CanMinimize">
+        Title="Kredi Hesaplama" Height="600" Width="400" Icon="icon.png"
+        WindowStartupLocation="CenterScreen" ResizeMode="CanMinimize"
+        Background="{StaticResource WindowBackgroundBrush}" Foreground="{StaticResource ForegroundBrush}">
     <Grid Margin="20">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/> <!-- Header -->
@@ -30,27 +31,41 @@
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
             </Grid.RowDefinitions>
 
             <!-- Ana Para -->
             <TextBlock Grid.Row="0" Grid.Column="0" Text="Ana Para (TL):" VerticalAlignment="Center" Margin="0,0,10,10"/>
-            <TextBox x:Name="txtAnaPara" Grid.Row="0" Grid.Column="1" Margin="0,0,0,10" Padding="5" TextChanged="txtSadeceSayi_TextChanged"/>
+            <TextBox x:Name="txtAnaPara" Grid.Row="0" Grid.Column="1" TextChanged="txtSadeceSayi_TextChanged"/>
 
             <!-- Aylık Faiz Oranı -->
             <TextBlock Grid.Row="1" Grid.Column="0" Text="Aylık Faiz Oranı (%):" VerticalAlignment="Center" Margin="0,0,10,10"/>
-            <TextBox x:Name="txtFaizOrani" Grid.Row="1" Grid.Column="1" Margin="0,0,0,10" Padding="5" TextChanged="txtFaizOrani_TextChanged"/>
+            <TextBox x:Name="txtFaizOrani" Grid.Row="1" Grid.Column="1" TextChanged="txtFaizOrani_TextChanged"/>
 
             <!-- Vade -->
             <TextBlock Grid.Row="2" Grid.Column="0" Text="Vade (Ay):" VerticalAlignment="Center" Margin="0,0,10,10"/>
-            <TextBox x:Name="txtVade" Grid.Row="2" Grid.Column="1" Margin="0,0,0,10" Padding="5" TextChanged="txtSadeceSayi_TextChanged"/>
+            <TextBox x:Name="txtVade" Grid.Row="2" Grid.Column="1" TextChanged="txtSadeceSayi_TextChanged"/>
+
+            <!-- Banka Tahsis Ücreti -->
+            <TextBlock Grid.Row="3" Grid.Column="0" Text="Banka Tahsis Ücreti (TL):" VerticalAlignment="Center" Margin="0,0,10,10"/>
+            <TextBox x:Name="txtTahsisUcreti" Grid.Row="3" Grid.Column="1" TextChanged="txtSadeceSayi_TextChanged"/>
+
+            <!-- Ort. Ekspertiz Ücreti -->
+            <TextBlock Grid.Row="4" Grid.Column="0" Text="Ort. Ekspertiz Ücreti (TL):" VerticalAlignment="Center" Margin="0,0,10,10"/>
+            <TextBox x:Name="txtEkspertizUcreti" Grid.Row="4" Grid.Column="1" TextChanged="txtSadeceSayi_TextChanged"/>
+
+            <!-- İpotek Ücreti -->
+            <TextBlock Grid.Row="5" Grid.Column="0" Text="İpotek Ücreti (TL):" VerticalAlignment="Center" Margin="0,0,10,10"/>
+            <TextBox x:Name="txtIpotekUcreti" Grid.Row="5" Grid.Column="1" TextChanged="txtSadeceSayi_TextChanged"/>
         </Grid>
 
         <!-- Calculate Button -->
         <Button x:Name="btnHesapla" Grid.Row="2" Content="HESAPLA" Height="40" Margin="0,10,0,20" 
-                Click="btnHesapla_Click" FontWeight="Bold" Background="#007ACC" Foreground="White" BorderThickness="0"/>
+                Click="btnHesapla_Click"/>
 
         <!-- Results Panel -->
-        <Border Grid.Row="3" BorderBrush="#DDDDDD" BorderThickness="1" CornerRadius="5" Padding="10" Background="#F9F9F9">
+        <Border Grid.Row="3" BorderBrush="{StaticResource BorderBrush}" BorderThickness="1" CornerRadius="5" Padding="10" Background="{StaticResource ControlBackgroundBrush}">
             <StackPanel>
                 <TextBlock Text="Hesaplama Sonuçları" FontWeight="SemiBold" Margin="0,0,0,10" TextDecorations="Underline"/>
                 
@@ -81,7 +96,7 @@
                     <TextBlock x:Name="lblToplamFaiz" Grid.Column="1" FontWeight="Bold" Text="- TL"/>
                 </Grid>
                 
-                 <TextBlock x:Name="lblHata" Foreground="Red" TextWrapping="Wrap" Margin="0,10,0,0" Visibility="Collapsed"/>
+                 <TextBlock x:Name="lblHata" Foreground="{StaticResource ErrorBrush}" TextWrapping="Wrap" Margin="0,10,0,0" Visibility="Collapsed"/>
             </StackPanel>
         </Border>
     </Grid>

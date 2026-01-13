@@ -7,10 +7,24 @@ namespace KrediHesaplama.Cekirdek
     /// </summary>
     public static class Versiyon
     {
-        public const string GuncelVersiyon = "1.0.1";
+        public const string GuncelVersiyon = "1.0.2";
 
         public static readonly List<VersiyonKaydi> VersiyonGecmisi = new List<VersiyonKaydi>
         {
+            new VersiyonKaydi
+            {
+                VersiyonNo = "1.0.2",
+                Tarih = "13.01.2026",
+                Aciklamalar = new List<string>
+                {
+                    "Koyu Tema (Dark Theme) desteği eklendi",
+                    "Yeni masraf kalemleri eklendi (Banka Tahsis, Ort. Ekspertiz, İpotek Ücretleri)",
+                    "Masrafların toplam geri ödeme tutarına dahil edilmesi sağlandı",
+                    "Uygulama ikonu modernleştirildi, dolar simgesi eklendi ve yüksek çözünürlüklü hale getirildi",
+                    "Açılış ekranı ikon boyutu büyütüldü ve görsel uyumluluk iyileştirmeleri yapıldı",
+                    "Arayüzdeki metin ve kontrol renkleri koyu temaya uygun olarak optimize edildi"
+                }
+            },
             new VersiyonKaydi
             {
                 VersiyonNo = "1.0.1",
